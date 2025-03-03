@@ -246,12 +246,6 @@ void main()
     float fhn[Q];
     load_f(index, fhn, nbs, ubo.t); // perform streaming (part 2);
 
-    // test(fhn, ubo.t); //test
-
-    for (uint q = 0; q < Q; ++q) {
-        ddfs[index] = fhn[q];
-    }
-
     if (flagsn == TYPE_MS) { // MOVING_BOUNDARIES
         apply_moving_boundaries(fhn, nbs); // apply Dirichlet velocity boundaries if necessary (reads velocities of only neighboring boundary cells, which do not change during simulation)
     }
