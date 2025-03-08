@@ -40,7 +40,7 @@
 uint32_t WIDTH = 800;
 uint32_t HEIGHT = 800;
 const uint32_t Nx = 128;
-const uint32_t Ny = 128;
+const uint32_t Ny = 256;
 const uint32_t Nz = 128;
 const uint32_t Nxyz = Nx * Ny * Nz;
 const uint32_t D = 3;
@@ -2040,8 +2040,8 @@ private:
             ubo.Nz = Nz;
             ubo.model = glm::mat4(1.0f);
             ubo.view = glm::lookAt(cameraPos, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-            //ubo.proj = glm::perspective(glm::radians(60.0f), swapChainExtent.width / (float)swapChainExtent.height, 0.1f, 10.0f);
-            ubo.proj = glm::perspective(glm::radians(60.0f), 1.0f, 0.1f, 100.0f);
+            ubo.proj = glm::perspective(glm::radians(60.0f), swapChainExtent.width / (float)swapChainExtent.height, 0.1f, 10.0f);
+            //ubo.proj = glm::perspective(glm::radians(60.0f), 1.0f, 0.1f, 100.0f);
             ubo.proj[1][1] *= -1;
             memcpy(renderingUBOBuffersMapped[currentImage], &ubo, sizeof(ubo));
         }
